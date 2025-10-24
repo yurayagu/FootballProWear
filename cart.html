@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Shopping cart - Review your selected football equipment before checkout."
+    />
+    <title>Shopping Cart - FootballProWear</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="logo">
+          <img
+            src="images/logo.png"
+            alt="FootballProWear Logo"
+            width="180"
+            height="60"
+          />
+        </div>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="catalog.html">Catalog</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contacts.html">Contacts</a></li>
+            <li><a href="cart.html" class="active">Cart</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="cart-page">
+        <div class="container">
+          <h1>Shopping Cart</h1>
+
+          <div class="cart-layout">
+            <div class="cart-items">
+              <article class="cart-item">
+                <img
+                  src="images/products/cleats-1.jpg"
+                  alt="Nike Mercurial Vapor Football Cleats"
+                  width="150"
+                  height="150"
+                />
+                <div class="item-details">
+                  <h2>Nike Mercurial Vapor 15 Elite</h2>
+                  <p class="item-meta">Size: US 9 / EU 42.5</p>
+                  <p class="item-meta">Color: Black/Red</p>
+                  <p class="item-price">$129.99</p>
+                </div>
+                <div class="item-quantity">
+                  <label for="qty-1">Quantity:</label>
+                  <input
+                    type="number"
+                    id="qty-1"
+                    name="quantity"
+                    min="1"
+                    max="10"
+                    value="1"
+                  />
+                </div>
+                <div class="item-total">
+                  <p class="total-price">$129.99</p>
+                  <button type="button" class="btn-remove">Remove</button>
+                </div>
+              </article>
+
+              <article class="cart-item">
+                <img
+                  src="images/products/shin-guards.jpg"
+                  alt="Professional Shin Guards"
+                  width="150"
+                  height="150"
+                />
+                <div class="item-details">
+                  <h2>Carbon Shin Guards</h2>
+                  <p class="item-meta">Size: Medium</p>
+                  <p class="item-meta">Color: Black</p>
+                  <p class="item-price">$34.99</p>
+                </div>
+                <div class="item-quantity">
+                  <label for="qty-2">Quantity:</label>
+                  <input
+                    type="number"
+                    id="qty-2"
+                    name="quantity"
+                    min="1"
+                    max="10"
+                    value="2"
+                  />
+                </div>
+                <div class="item-total">
+                  <p class="total-price">$69.98</p>
+                  <button type="button" class="btn-remove">Remove</button>
+                </div>
+              </article>
+
+              <article class="cart-item">
+                <img
+                  src="images/products/socks.jpg"
+                  alt="Football Socks Performance"
+                  width="150"
+                  height="150"
+                />
+                <div class="item-details">
+                  <h2>Performance Socks</h2>
+                  <p class="item-meta">Size: Large</p>
+                  <p class="item-meta">Color: White</p>
+                  <p class="item-price">$19.99</p>
+                </div>
+                <div class="item-quantity">
+                  <label for="qty-3">Quantity:</label>
+                  <input
+                    type="number"
+                    id="qty-3"
+                    name="quantity"
+                    min="1"
+                    max="10"
+                    value="3"
+                  />
+                </div>
+                <div class="item-total">
+                  <p class="total-price">$59.97</p>
+                  <button type="button" class="btn-remove">Remove</button>
+                </div>
+              </article>
+            </div>
+
+            <aside class="cart-summary">
+              <h2>Order Summary</h2>
+              <div class="summary-row">
+                <span>Subtotal:</span>
+                <span>$259.94</span>
+              </div>
+              <div class="summary-row">
+                <span>Shipping:</span>
+                <span>$15.00</span>
+              </div>
+              <div class="summary-row">
+                <span>Tax:</span>
+                <span>$20.79</span>
+              </div>
+              <div class="summary-row total">
+                <span>Total:</span>
+                <span>$295.73</span>
+              </div>
+
+              <form class="checkout-form">
+                <h3>Shipping Information</h3>
+
+                <div class="form-group">
+                  <label for="region">Shipping Region:</label>
+                  <select id="region" name="region" required>
+                    <option value="">Select region</option>
+                    <option value="usa">United States</option>
+                    <option value="europe">Europe</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="fullname">Full Name:</label>
+                  <input type="text" id="fullname" name="fullname" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Phone:</label>
+                  <input type="tel" id="phone" name="phone" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="address">Address:</label>
+                  <input type="text" id="address" name="address" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="city">City:</label>
+                  <input type="text" id="city" name="city" required />
+                </div>
+
+                <div class="form-group">
+                  <label for="postal">Postal Code:</label>
+                  <input type="text" id="postal" name="postal" required />
+                </div>
+
+                <button type="submit" class="btn-primary">
+                  Proceed to Checkout
+                </button>
+              </form>
+
+              <a href="catalog.html" class="btn-secondary">Continue Shopping</a>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3>FootballProWear</h3>
+            <p>Premium football equipment for players worldwide.</p>
+          </div>
+          <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul>
+              <li><a href="catalog.html">Catalog</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="contacts.html">Contacts</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Email: info@footballprowear.com</p>
+            <p>Phone: +1 (555) 123-4567</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 FootballProWear. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
