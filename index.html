@@ -8,23 +8,76 @@
       content="FootballProWear - Premium football equipment and gear for players of all levels. Shop cleats, jerseys, and accessories."
     />
     <title>FootballProWear - Premium Football Equipment</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
     <header>
       <div class="container">
         <div class="logo">
-          <img
-            src="images/logo.png"
-            alt="FootballProWear Logo"
-            width="180"
-            height="60"
-          />
+          <a href="index.html">
+            <img
+              src="images/logo.png"
+              alt="FootballProWear Logo"
+              width="200"
+              height="70"
+            />
+          </a>
         </div>
+
+        <input type="checkbox" id="menu-toggle" />
+        <label for="menu-toggle" class="menu-icon">&#9776;</label>
+
         <nav>
           <ul>
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="catalog.html">Catalog</a></li>
+            <li class="dropdown-item">
+              <a href="catalog.html?filter=all">Catalog ▾</a>
+              <div class="mega-menu">
+                <div class="mega-column">
+                  <h3>
+                    <a href="catalog.html?filter=cleats">Football Boots</a>
+                  </h3>
+                  <ul>
+                    <li>
+                      <a href="catalog.html?filter=mercurial">Nike Mercurial</a>
+                    </li>
+                    <li>
+                      <a href="catalog.html?filter=predator">Adidas Predator</a>
+                    </li>
+                    <li>
+                      <a href="catalog.html?filter=future">Puma Future</a>
+                    </li>
+                    <li>
+                      <a href="catalog.html?filter=phantom">Nike Phantom</a>
+                    </li>
+                  </ul>
+                </div>
+                <div class="mega-column">
+                  <h3><a href="catalog.html?filter=jerseys">Clothing</a></h3>
+                  <ul>
+                    <li><a href="catalog.html?filter=jerseys">Jerseys</a></li>
+                    <li>
+                      <a href="catalog.html?filter=training">Training Wear</a>
+                    </li>
+                    <li><a href="catalog.html?filter=shorts">Shorts</a></li>
+                  </ul>
+                </div>
+                <div class="mega-column">
+                  <h3>
+                    <a href="catalog.html?filter=accessories">Accessories</a>
+                  </h3>
+                  <ul>
+                    <li>
+                      <a href="catalog.html?filter=gloves">Goalkeeper Gloves</a>
+                    </li>
+                    <li>
+                      <a href="catalog.html?filter=shin-guards">Shin Guards</a>
+                    </li>
+                    <li><a href="catalog.html?filter=ball">Footballs</a></li>
+                  </ul>
+                </div>
+              </div>
+            </li>
             <li><a href="about.html">About Us</a></li>
             <li><a href="contacts.html">Contacts</a></li>
             <li><a href="cart.html">Cart</a></li>
@@ -79,36 +132,36 @@
           <div class="products-grid">
             <article class="product-card">
               <img
-                src="images/products/cleats-1.jpg"
+                src="images/products/adidas-f50-black-red.jpg"
                 alt="Professional Football Cleats"
                 width="300"
                 height="300"
               />
-              <h3>Pro Cleats Elite</h3>
-              <p class="price">$129.99</p>
-              <a href="product.html" class="btn-secondary">View Details</a>
+              <h3>Adidas F50 Elite FG Stealth Victory - Black/Lucid Red</h3>
+              <p class="price">$229.99</p>
+              <a href="product.html?id=1" class="btn-secondary">View Details</a>
             </article>
             <article class="product-card">
               <img
-                src="images/products/jersey-1.jpg"
+                src="images/products/football-shirt-nike-fc-barcelona-24-25-away-match-black.jpg"
                 alt="Team Football Jersey"
                 width="300"
                 height="300"
               />
-              <h3>Team Jersey Premium</h3>
-              <p class="price">$79.99</p>
-              <a href="product.html" class="btn-secondary">View Details</a>
+              <h3>Nike FC Barcelona 24/25 Away Shirt - Black/Red</h3>
+              <p class="price">$129.99</p>
+              <a href="product.html?id=2" class="btn-secondary">View Details</a>
             </article>
             <article class="product-card">
               <img
-                src="images/products/gloves-1.jpg"
+                src="images/products/adidas-predator-pro-gk-gloves-black-red.jpg"
                 alt="Goalkeeper Gloves"
                 width="300"
                 height="300"
               />
-              <h3>Goalkeeper Gloves Pro</h3>
-              <p class="price">$89.99</p>
-              <a href="product.html" class="btn-secondary">View Details</a>
+              <h3>Adidas Predator Pro GK Stealth Victory - Black/Lucid Red</h3>
+              <p class="price">$109.99</p>
+              <a href="product.html?id=3" class="btn-secondary">View Details</a>
             </article>
           </div>
         </div>

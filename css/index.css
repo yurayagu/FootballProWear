@@ -1,0 +1,104 @@
+@import url("./variables.css");
+@import url("./reset.css");
+@import url("./layout.css");
+@import url("./components.css");
+@import url("./pages.css");
+
+.hero {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../images/hero-banner.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--primary-white);
+  padding: 200px 0;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  margin-bottom: 2.5rem;
+  color: var(--primary-white);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.features {
+  padding: 80px 0;
+  background-color: var(--primary-white);
+}
+
+.features h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  color: var(--primary-black);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 0 20px;
+}
+
+.feature-card {
+  padding: 2.5rem 2rem;
+  background-color: var(--bg-grey);
+  text-align: center;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-red);
+}
+
+.feature-card h3 {
+  color: var(--primary-red);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.featured-products {
+  padding: 80px 0;
+  background-color: var(--primary-white);
+}
+
+.featured-products h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  color: var(--primary-black);
+}
