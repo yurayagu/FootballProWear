@@ -81,6 +81,11 @@
             <li><a href="about.html">About Us</a></li>
             <li><a href="contacts.html">Contacts</a></li>
             <li><a href="cart.html">Cart</a></li>
+            <li class="theme-btn-container">
+              <button id="theme-toggle" class="btn-theme" title="Switch Theme">
+                🌙
+              </button>
+            </li>
           </ul>
         </nav>
       </div>
@@ -95,6 +100,29 @@
             the USA and Europe.
           </p>
           <a href="catalog.html" class="btn-primary">Shop Now</a>
+        </div>
+      </section>
+
+      <section class="container" style="margin-top: 20px">
+        <div class="accordion-box">
+          <h3>Why buy from us? (Click to read more)</h3>
+          <div
+            id="hidden-content"
+            style="display: none; padding: 10px; border-left: 3px solid #e30613"
+          >
+            <p>
+              We are the only official distributor offering a 2-year warranty on
+              all professional cleats and authentic match jerseys. Our delivery
+              speed is unmatched across Europe and the USA.
+            </p>
+          </div>
+          <button
+            id="show-more-btn"
+            class="btn-secondary"
+            style="margin-top: 10px"
+          >
+            Show More
+          </button>
         </div>
       </section>
 
@@ -190,7 +218,10 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 FootballProWear. All rights reserved.</p>
+          <p>
+            &copy; <span id="year-container">2025</span> FootballProWear. All
+            rights reserved. Today: <span id="current-date"></span>
+          </p>
         </div>
       </div>
     </footer>
