@@ -306,7 +306,6 @@ window.lastIsMobile = window.innerWidth <= 768;
 document.addEventListener("DOMContentLoaded", function () {
   initCartFunctions();
   initQuantityControls();
-  initFormValidation();
   initFilters();
   initCollapsibleFilters();
   initSorting();
@@ -893,47 +892,6 @@ function initQuantityControls() {
   });
 }
 
-// Валідація форм
-function initFormValidation() {
-  const forms = document.querySelectorAll("form");
-  forms.forEach((form) => {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-      if (validateForm(this)) {
-        alert(
-          "Form submitted successfully! (Demo mode - no actual submission)"
-        );
-      }
-    });
-  });
-}
-
-function validateForm(form) {
-  let isValid = true;
-  const requiredFields = form.querySelectorAll("[required]");
-  requiredFields.forEach((field) => {
-    if (!field.value.trim()) {
-      isValid = false;
-      field.style.borderColor = "#E30613";
-    } else {
-      field.style.borderColor = "#C0C0C0";
-    }
-  });
-  const emailFields = form.querySelectorAll('input[type="email"]');
-  emailFields.forEach((field) => {
-    if (field.value && !isValidEmail(field.value)) {
-      isValid = false;
-      field.style.borderColor = "#E30613";
-    }
-  });
-  return isValid;
-}
-
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
 // Плавна прокрутка для якорних посилань
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
@@ -950,3 +908,185 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 });
 
 console.log("FootballProWear - JS Loaded Successfully");
+
+document.addEventListener("DOMContentLoaded", function () {
+  initLab4DOM();
+  initThemeToggle();
+  initDateDisplay();
+  initAccordion();
+  initNavHighlight();
+  initKeyboardZoom();
+  initContactFormValidation();
+});
+
+function initLab4DOM() {
+  const priceElements = document.querySelectorAll(".price");
+  priceElements.forEach((el) => {
+    el.style.fontWeight = "900";
+    el.style.letterSpacing = "1px";
+    el.style.color = "#d90429";
+  });
+
+  const mainBlock = document.querySelector("main");
+  if (mainBlock) {
+    const banner = document.createElement("div");
+    banner.className = "js-promo-banner";
+    banner.style.backgroundColor = "#E30613";
+    banner.style.color = "white";
+    banner.style.textAlign = "center";
+    banner.style.padding = "10px";
+    banner.style.fontWeight = "bold";
+    banner.innerText = "Offer: Free shipping on orders over $200!";
+
+    mainBlock.prepend(banner);
+  }
+}
+
+function initDateDisplay() {
+  const dateSpan = document.getElementById("current-date");
+  if (dateSpan) {
+    const today = new Date();
+    dateSpan.textContent = today.toLocaleDateString("uk-UA");
+  }
+}
+
+function initAccordion() {
+  const btn = document.getElementById("show-more-btn");
+  const content = document.getElementById("hidden-content");
+
+  if (btn && content) {
+    btn.addEventListener("click", function () {
+      if (content.style.display === "none") {
+        content.style.display = "block";
+        btn.textContent = "Show Less";
+      } else {
+        content.style.display = "none";
+        btn.textContent = "Show More";
+      }
+    });
+  }
+}
+
+function initThemeToggle() {
+  const toggleBtn = document.getElementById("theme-toggle");
+  const body = document.body;
+
+  const savedTheme = localStorage.getItem("football-theme");
+  if (savedTheme === "dark") {
+    body.classList.add("dark-theme");
+    if (toggleBtn) toggleBtn.textContent = "☀️";
+  }
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", function () {
+      body.classList.toggle("dark-theme");
+
+      if (body.classList.contains("dark-theme")) {
+        toggleBtn.textContent = "☀️";
+        localStorage.setItem("football-theme", "dark");
+      } else {
+        toggleBtn.textContent = "🌙";
+        localStorage.setItem("football-theme", "light");
+      }
+    });
+  }
+}
+
+function initNavHighlight() {
+  const navLinks = document.querySelectorAll("nav ul li a");
+
+  navLinks.forEach((link) => {
+    link.addEventListener("mouseenter", function () {
+      this.classList.add("nav-hover");
+    });
+    link.addEventListener("mouseleave", function () {
+      this.classList.remove("nav-hover");
+    });
+  });
+}
+
+function initKeyboardZoom() {
+  let fontSize = 100;
+
+  window.addEventListener("keydown", function (event) {
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      fontSize += 5;
+      document.body.style.fontSize = fontSize + "%";
+    } else if (event.key === "ArrowDown") {
+      event.preventDefault();
+      if (fontSize > 50) {
+        fontSize -= 5;
+        document.body.style.fontSize = fontSize + "%";
+      }
+    }
+  });
+}
+
+function initContactFormValidation() {
+  const form = document.getElementById("contact-form");
+  if (!form) return;
+
+  form.onsubmit = function (event) {
+    event.preventDefault();
+    console.log("Validation started...");
+
+    let isValid = true;
+
+    const inputs = form.querySelectorAll("input, textarea");
+    inputs.forEach((input) => {
+      input.style.border = "1px solid #ccc";
+      input.style.backgroundColor = "";
+    });
+
+    document
+      .querySelectorAll(".error-msg")
+      .forEach((el) => (el.textContent = ""));
+
+    const nameInput = document.getElementById("name");
+    const emailInput = document.getElementById("email");
+    const msgInput = document.getElementById("message");
+
+    if (nameInput.value.trim().length < 3) {
+      isValid = false;
+      showError(nameInput, "Name must be at least 3 characters long");
+    }
+
+    const emailValue = emailInput.value.trim();
+    if (!emailValue.includes("@") || !emailValue.includes(".")) {
+      isValid = false;
+      showError(emailInput, "Please enter a valid email address");
+    }
+
+    if (msgInput.value.trim().length < 10) {
+      isValid = false;
+      showError(msgInput, "Message is too short (min 10 characters)");
+    }
+
+    if (isValid) {
+      console.log("Form Data Sent:", {
+        name: nameInput.value,
+        email: emailInput.value,
+        message: msgInput.value,
+      });
+
+      alert("Form submitted successfully!");
+      localStorage.setItem("last-user-name", nameInput.value);
+      form.reset();
+    }
+  };
+}
+
+function showError(input, message) {
+  input.style.border = "2px solid #E30613";
+  input.style.backgroundColor = "rgba(227, 6, 19, 0.05)";
+
+  const errorSpan = document.getElementById(input.id + "-error");
+  if (errorSpan) {
+    errorSpan.textContent = message;
+    errorSpan.style.color = "#E30613";
+    errorSpan.style.display = "block";
+    errorSpan.style.fontSize = "14px";
+    errorSpan.style.marginTop = "5px";
+  }
+}

@@ -79,6 +79,11 @@
             <li><a href="about.html">About Us</a></li>
             <li><a href="contacts.html" class="active">Contacts</a></li>
             <li><a href="cart.html">Cart</a></li>
+            <li class="theme-btn-container">
+              <button id="theme-toggle" class="btn-theme" title="Switch Theme">
+                🌙
+              </button>
+            </li>
           </ul>
         </nav>
       </div>
@@ -96,7 +101,7 @@
           <div class="contacts-layout">
             <div class="contact-form-section">
               <h2>Send Us a Message</h2>
-              <form class="contact-form" method="post" action="#">
+              <form class="contact-form" id="contact-form" novalidate>
                 <div class="form-group">
                   <label for="name"
                     >Full Name: <span class="required">*</span></label
@@ -108,6 +113,7 @@
                     required
                     placeholder="John Doe"
                   />
+                  <span class="error-msg" id="name-error"></span>
                 </div>
 
                 <div class="form-group">
@@ -121,32 +127,7 @@
                     required
                     placeholder="john.doe@example.com"
                   />
-                </div>
-
-                <div class="form-group">
-                  <label for="phone">Phone Number:</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    placeholder="+1 (555) 123-4567"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label for="subject"
-                    >Subject: <span class="required">*</span></label
-                  >
-                  <select id="subject" name="subject" required>
-                    <option value="">Select a subject</option>
-                    <option value="order">Order Inquiry</option>
-                    <option value="product">Product Question</option>
-                    <option value="shipping">Shipping Information</option>
-                    <option value="return">Returns and Exchanges</option>
-                    <option value="technical">Technical Support</option>
-                    <option value="feedback">Feedback</option>
-                    <option value="other">Other</option>
-                  </select>
+                  <span class="error-msg" id="email-error"></span>
                 </div>
 
                 <div class="form-group">
@@ -160,13 +141,7 @@
                     required
                     placeholder="Tell us how we can help you..."
                   ></textarea>
-                </div>
-
-                <div class="form-group">
-                  <label>
-                    <input type="checkbox" name="newsletter" value="yes" />
-                    Subscribe to our newsletter for updates and special offers
-                  </label>
+                  <span class="error-msg" id="message-error"></span>
                 </div>
 
                 <button type="submit" class="btn-primary">Send Message</button>
@@ -324,7 +299,10 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2025 FootballProWear. All rights reserved.</p>
+          <p>
+            &copy; <span id="year-container">2025</span> FootballProWear. All
+            rights reserved. Today: <span id="current-date"></span>
+          </p>
         </div>
       </div>
     </footer>
